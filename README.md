@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 consultas de datos
 
-![consulta-api](https://user-images.githubusercontent.com/80183450/110712201-1f801d00-8201-11eb-9b6c-9a5fc955991a.png)
+![prueba](https://user-images.githubusercontent.com/80183450/110713286-f2803a00-8201-11eb-9b37-d9951a016637.png)
 
 Impresión de los datos mediante ngx-print
 
