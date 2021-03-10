@@ -1,0 +1,9 @@
+
+@media (max-width:760px){
+    .col-md-4{
+        margin-top: -25px;
+    }
+    .card{
+        margin-top: 10px;;
+    }
+}
