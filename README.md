@@ -10,4 +10,4 @@ consultas de datos
 
 Impresión de los datos mediante ngx-print
 
-![imprimir](https://user-images.githubusercontent.com/80183450/110712220-260e9480-8201-11eb-8c67-6779870a51d4.png)
+![api-imprimir](https://user-images.githubusercontent.com/80183450/110831605-b0570700-829a-11eb-9800-08cbb739e12f.png)
