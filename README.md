@@ -1,6 +1,6 @@
 # Aplicación de consulta de datos utilizando ApisPERU
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4. see [demo](https://jontonio.github.io/consulta-api-angular/)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4. see [demo](https://jontonio.github.io/Consulta-DNI-personas/)
 
 ![main-api](https://user-images.githubusercontent.com/80183450/110712176-155e1e80-8201-11eb-9e43-4f5fffea4509.png)
 
