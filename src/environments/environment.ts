@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  URL_API: 'https://dniruc.apisperu.com/api/v1/dni/',
+  TOKEN:'token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Impvc2VhbnRvbmlvcnN5c3RlbUBnbWFpbC5jb20ifQ.BCnFI0IWlU9IEjv5pXu74c8yysKmGP_NN1_c7kmu-QI'
 };
 
 /*

@@ -6,32 +6,13 @@ import { ConsultaService } from '../../service/consulta.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  dni       :string = '';
-  alert     :boolean = false;
-  
-  constructor( public cservice:ConsultaService) { }
+  constructor( public cservice:ConsultaService ) { }
 
-  ngOnInit(): void {
-  }
-
-  consultar(){
-    this.cservice.consultar(this.dni);
-    this.dni = '';
-  }
-
-  eliminarItem(indice:number){
-    this.cservice.eliminarPersona(indice);
-  }
 
   eliminarAll(){
     this.cservice.eliminarStorage()
   }
-
-  cancelar(){
-    this.dni = '';
-  }
-
 
 }

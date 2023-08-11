@@ -2,15 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Mensaje } from '../models/mensaje.models';
 import { Persona } from '../models/persona.models';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConsultaService {
 
-  url  : string = 'https://dniruc.apisperu.com/api/v1/dni/';
-  token: string = 'token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Impvc2VhbnRvbmlvcnN5c3RlbUBnbWFpbC5jb20ifQ.BCnFI0IWlU9IEjv5pXu74c8yysKmGP_NN1_c7kmu-QI'
-  carga: boolean = false; 
+  carga: boolean = false;
   persona: Persona;
   verificado:boolean = false;
   alert:boolean = false
@@ -37,7 +36,7 @@ export class ConsultaService {
 
     } else if(dni===null){
 
-      this.mensaje.aviso = 'Complete el campo dni';
+      this.mensaje.aviso = 'Complete el campo DNI';
       this.mensaje.estado = true;
       setTimeout(() => this.mensaje.estado = false , 3000);
 
@@ -54,26 +53,26 @@ export class ConsultaService {
 
   consultar( dni:string ){
 
+    if(!dni) return;
+
     if (this.validarDni(dni)) {
 
       this.carga = true;
-      this.http.get<Persona>(`${this.url}${dni}?${this.token}`).subscribe(
+      this.http.get<Persona>(`${environment.URL_API}${dni}?${environment.TOKEN}`).subscribe(
         (res)=>{
-          if(res===null){
-            this.mensaje.aviso = `No se encontro datos con el DNI ${dni}`
+          this.carga = false
+          if(res.message && !res.success){
+            this.mensaje.aviso = res.message;
             this.mensaje.tipo = 'warning';
             this.mensaje.estado = true;
-            this.carga = false
-            setTimeout(() => this.mensaje.estado = false , 3000);
+            setTimeout(() => this.mensaje.estado = false , 3500);
             return;
           }
-
           this.persona = res;
-          this.carga = false
           this.historial.push(this.persona);
           this.guardarStorage();
         },
-        (err)=>{ 
+        (err)=>{
           this.mensaje.aviso = err
           this.mensaje.tipo = 'danger';
           this.carga = false
@@ -96,10 +95,10 @@ export class ConsultaService {
 
   eliminarStorage(){
     localStorage.removeItem('data');
-    this.historial.length = 0;
+    this.historial = [];
     this.guardarStorage();
   }
-  
+
   eliminarPersona(i:number){
     this.historial.splice(i,1);
     this.guardarStorage();
